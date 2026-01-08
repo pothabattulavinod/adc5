@@ -1,0 +1,81 @@
+name: MKV to HLS (Video Copy + Telugu 5.1 Audio)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  convert:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1️⃣ Checkout repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
+      # 2️⃣ Install ffmpeg
+      - name: Install ffmpeg
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+
+      # 3️⃣ Convert MKV to HLS (Video Copy + Telugu Audio → 5.1)
+      - name: Convert MKV to HLS (Video Copy + Telugu 5.1 Audio)
+        run: |
+          set -e
+
+          INPUT_URL="https://nw31.seedr.cc/ff_get/5851925845/www.5MovieRulz.flights%20-%20Akhanda%202%20(2025)%20720p%20Telugu%20HQ%20HQ%20HDRip%20-%20x264%20-%20(DD_%205.1%20-%201.92kbps%20_%20AAC)%20-%201.6GB%20-%20ESub.mkv?st=hZTpI8C2v9qM5Wfn-58J0w&e=1768001263"
+          OUTPUT_FOLDER="ak2"
+          mkdir -p "$OUTPUT_FOLDER"
+          OUTPUT_PATH="$OUTPUT_FOLDER/playlist.m3u8"
+
+          echo "🎬 Searching for Telugu audio stream and converting to HLS..."
+
+          ffmpeg -y -i "$INPUT_URL" \
+            -filter_complex "[0:a:m:language:tel]pan=5.1(aout)" \
+            -map 0:v:0 \
+            -map "[aout]" \
+            -c:v copy \
+            -c:a aac -b:a 384k -ac 6 \
+            -f hls \
+            -hls_time 10 \
+            -hls_playlist_type vod \
+            -hls_segment_filename "$OUTPUT_FOLDER/segment%03d.ts" \
+            "$OUTPUT_PATH" || \
+          {
+            echo "⚠️ Telugu stream not found, falling back to first audio stream..."
+            ffmpeg -y -i "$INPUT_URL" \
+              -map 0:v:0 \
+              -map 0:a:0 \
+              -c:v copy \
+              -c:a aac -b:a 384k -ac 6 \
+              -f hls \
+              -hls_time 10 \
+              -hls_playlist_type vod \
+              -hls_segment_filename "$OUTPUT_FOLDER/segment%03d.ts" \
+              "$OUTPUT_PATH"
+          }
+
+          echo "✅ HLS conversion completed. Output: $OUTPUT_PATH"
+
+      # 4️⃣ Commit and push results
+      - name: Commit and push HLS output
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
+        run: |
+          git config --global user.name "pothabattulavinod"
+          git config --global user.email "vinodyadavpothabattula666@gmail.com"
+
+          git add ak2
+
+          if ! git diff-index --quiet HEAD; then
+            git commit -m "Add HLS (video copy + Telugu 5.1 audio) [skip ci]"
+          else
+            echo "No new files to commit."
+          fi
+
+          git remote remove origin || true
+          git remote add origin https://x-access-token:${GH_PAT}@github.com/pothabattulavinod/adc5.git
+          git push origin HEAD:main
