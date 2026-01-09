@@ -26,8 +26,8 @@ jobs:
         run: |
           set -e
 
-          INPUT_URL="https://nw31.seedr.cc/ff_get/5851925845/www.5MovieRulz.flights%20-%20Akhanda%202%20(2025)%20720p%20Telugu%20HQ%20HQ%20HDRip%20-%20x264%20-%20(DD_%205.1%20-%201.92kbps%20_%20AAC)%20-%201.6GB%20-%20ESub.mkv?st=hZTpI8C2v9qM5Wfn-58J0w&e=1768001263"
-          OUTPUT_FOLDER="ak2"
+          INPUT_URL="https://rd17.seedr.cc/ff_get/5852210091/www.1TamilMV.LC%20-%20The%20Raja%20Saab%20(2026)%20Hindi%20HQ%20PreDVD%20-%20720p%20-%20x264%20-%20HQ%20Clean%20-%201.7GB.mkv?st=YzeL1sR4d3vmRPf6bx6qzw&e=1768052838"
+          OUTPUT_FOLDER="tr"
           mkdir -p "$OUTPUT_FOLDER"
           OUTPUT_PATH="$OUTPUT_FOLDER/playlist.m3u8"
 
@@ -68,7 +68,7 @@ jobs:
           git config --global user.name "pothabattulavinod"
           git config --global user.email "vinodyadavpothabattula666@gmail.com"
 
-          git add ak2
+          git add tr
 
           if ! git diff-index --quiet HEAD; then
             git commit -m "Add HLS (video copy + Telugu 5.1 audio) [skip ci]"
