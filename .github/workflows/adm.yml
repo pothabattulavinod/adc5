@@ -26,8 +26,8 @@ jobs:
         run: |
           set -e
 
-          INPUT_URL="https://rd5.seedr.cc/ff_get/5852412712/www.1TamilMV.LC%20-%20The%20Raja%20Saab%20(2026)%20Telugu%20HQ%20PreDVD%20-%20x264%20-%20HQ%20Clean%20-%20AAC%20-%20850MB.mkv?st=LkL8kwxMcYf9r5n_r4zj8g&e=1768086387"
-          OUTPUT_FOLDER="tr"
+          INPUT_URL="https://nw19.seedr.cc/ff_get/5852486659/www.5MovieRulz.flights%20-%20The%20Raja%20Saab%20(2026)%20720p%20Telugu%20DVDScr%20-%20x264%20-%20AAC%20-%201GB.mkv?st=e_6zs_4N1Muo7gKmHnryTw&e=1768103339"
+          OUTPUT_FOLDER="trs"
           mkdir -p "$OUTPUT_FOLDER"
           OUTPUT_PATH="$OUTPUT_FOLDER/playlist.m3u8"
 
@@ -68,7 +68,7 @@ jobs:
           git config --global user.name "pothabattulavinod"
           git config --global user.email "vinodyadavpothabattula666@gmail.com"
 
-          git add tr
+          git add trs
 
           if ! git diff-index --quiet HEAD; then
             git commit -m "Add HLS (video copy + Telugu 5.1 audio) [skip ci]"
