@@ -26,8 +26,8 @@ jobs:
         run: |
           set -e
 
-          INPUT_URL="https://nw19.seedr.cc/ff_get/5852486659/www.5MovieRulz.flights%20-%20The%20Raja%20Saab%20(2026)%20720p%20Telugu%20DVDScr%20-%20x264%20-%20AAC%20-%201GB.mkv?st=e_6zs_4N1Muo7gKmHnryTw&e=1768103339"
-          OUTPUT_FOLDER="trs"
+          INPUT_URL="https://nw19.seedr.cc/ff_get/5853816158/www.5MovieRulz.flights%20-%20Mana%20Shankara%20Vara%20Prasad%20Garu%20(2026)%20720p%20Telugu%20DVDScr%20-%20x264%20-%20AAC%20-%201.7GB.mkv?st=4RxG9XIkFNYgAUnz6lwXeg&e=1768345385"
+          OUTPUT_FOLDER="msvpg"
           mkdir -p "$OUTPUT_FOLDER"
           OUTPUT_PATH="$OUTPUT_FOLDER/playlist.m3u8"
 
@@ -68,7 +68,7 @@ jobs:
           git config --global user.name "pothabattulavinod"
           git config --global user.email "vinodyadavpothabattula666@gmail.com"
 
-          git add trs
+          git add msvpg
 
           if ! git diff-index --quiet HEAD; then
             git commit -m "Add HLS (video copy + Telugu 5.1 audio) [skip ci]"
