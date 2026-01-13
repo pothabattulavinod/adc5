@@ -26,7 +26,7 @@ jobs:
         run: |
           set -e
 
-          INPUT_URL="https://nw29.seedr.cc/ff_get/5854082444/www.1TamilMV.do%20-%20Bhartha%20Mahasayulaku%20Wignyapthi%20(2026)%20Telugu%20HQ%20PreDVD%20-%20x264%20-%20HQ%20Clean%20-%20AAC%20-%20700MB.mkv?st=aKPa0m8yus9R7vhj8fo4_Q&e=1768397278"
+          INPUT_URL="https://rd8.seedr.cc/ff_get/5854095935/www.1TamilMV.do%20-%20Bhartha%20Mahasayulaku%20Wignyapthi%20(2026)%20Telugu%20HQ%20PreDVD%20-%20720p%20-%20x264%20-%20HQ%20Clean%20-%20AAC%20-%201.4GB.mkv?st=ilhaGl4XhTYgW68qaK-psg&e=1768399129"
           OUTPUT_FOLDER="bmw"
           mkdir -p "$OUTPUT_FOLDER"
           OUTPUT_PATH="$OUTPUT_FOLDER/playlist.m3u8"
