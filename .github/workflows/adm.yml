@@ -26,8 +26,8 @@ jobs:
         run: |
           set -e
 
-          INPUT_URL="https://nw16.seedr.cc/ff_get/5853819706/www.1TamilMV.LC%20-%20Mana%20Shankara%20Vara%20Prasad%20Garu%20(2026)%20Telugu%20HQ%20PreDVD%20-%20720p%20-%20x264%20-%20HQ%20Clean%20-%20AAC%20-%201.4GB.mkv?st=P6lQjGUk1myNpa9ZSOj2ZQ&e=1768346248"
-          OUTPUT_FOLDER="msvpg"
+          INPUT_URL="https://nw29.seedr.cc/ff_get/5854082444/www.1TamilMV.do%20-%20Bhartha%20Mahasayulaku%20Wignyapthi%20(2026)%20Telugu%20HQ%20PreDVD%20-%20x264%20-%20HQ%20Clean%20-%20AAC%20-%20700MB.mkv?st=aKPa0m8yus9R7vhj8fo4_Q&e=1768397278"
+          OUTPUT_FOLDER="bmw"
           mkdir -p "$OUTPUT_FOLDER"
           OUTPUT_PATH="$OUTPUT_FOLDER/playlist.m3u8"
 
@@ -68,7 +68,7 @@ jobs:
           git config --global user.name "pothabattulavinod"
           git config --global user.email "vinodyadavpothabattula666@gmail.com"
 
-          git add msvpg
+          git add bmw
 
           if ! git diff-index --quiet HEAD; then
             git commit -m "Add HLS (video copy + Telugu 5.1 audio) [skip ci]"
