@@ -26,8 +26,8 @@ jobs:
         run: |
           set -e
 
-          INPUT_URL="https://rd8.seedr.cc/ff_get/5854095935/www.1TamilMV.do%20-%20Bhartha%20Mahasayulaku%20Wignyapthi%20(2026)%20Telugu%20HQ%20PreDVD%20-%20720p%20-%20x264%20-%20HQ%20Clean%20-%20AAC%20-%201.4GB.mkv?st=ilhaGl4XhTYgW68qaK-psg&e=1768399129"
-          OUTPUT_FOLDER="bmw"
+          INPUT_URL="https://cdn.telugudub.store/Tere_Ishk_Mein_%282025%29_Telugu_720p.mkv"
+          OUTPUT_FOLDER="ak"
           mkdir -p "$OUTPUT_FOLDER"
           OUTPUT_PATH="$OUTPUT_FOLDER/playlist.m3u8"
 
@@ -68,7 +68,7 @@ jobs:
           git config --global user.name "pothabattulavinod"
           git config --global user.email "vinodyadavpothabattula666@gmail.com"
 
-          git add bmw
+          git add ak
 
           if ! git diff-index --quiet HEAD; then
             git commit -m "Add HLS (video copy + Telugu 5.1 audio) [skip ci]"
